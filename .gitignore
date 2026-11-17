@@ -1,0 +1,12 @@
+# Dafny
+*.dfy.doo
+.dafny/
+# Lean
+/build/
+/.lake/
+*.olean
+lakefile.olean
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
