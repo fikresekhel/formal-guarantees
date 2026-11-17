@@ -22,6 +22,10 @@ AI-generated hot path.
   wallet, now in 64-bit integers that wrap. A deposit that silently overflows
   destroys funds with no error; the invariant "no funds lost" catches it, proved
   over the whole 2^64 space by Z3's bitvector reasoning.
+- **[Under-constrained: the circuit that proves a lie](zk-underconstrained-circuit)**
+  — the #1 bug class in zero-knowledge auditing. A multiplexer circuit whose
+  selector is not constrained to a bit accepts a witness that proves a false
+  statement; the booleanity constraint restores soundness, proved in Lean.
 
 Each piece is self-contained. Run `dafny verify` (Dafny pieces) or `lean` (the
 Lean piece) on the files to reproduce the SUCCEEDS / FAILS yourself.
