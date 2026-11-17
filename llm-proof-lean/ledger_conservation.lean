@@ -26,8 +26,11 @@ def transfer (l : Ledger) (amount : Int) : Ledger :=
 /-- One transfer conserves the total. -/
 theorem transfer_conserves (l : Ledger) (amt : Int) :
     total (transfer l amt) = total l := by
-  unfold transfer total
-  split <;> omega
+  unfold transfer
+  split
+  · show (l.a - amt) + (l.b + amt) = l.a + l.b
+    omega
+  · rfl
 
 /-- Apply a whole list of transfers, left to right. -/
 def applyAll (l : Ledger) : List Int → Ledger

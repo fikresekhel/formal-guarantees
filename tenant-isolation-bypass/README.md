@@ -39,7 +39,7 @@ State it (`02_tenant_isolation_fails.dfy`):
 ensures CanRead(userTenant, role, docTenant, docOwner, userId) ==> userTenant == docTenant
 ```
 
-Verification **fails**, with a witness:
+Verification **fails**, on exactly that invariant. The input that breaks it:
 
 ```
 role = Admin, userTenant = 0, docTenant = 1   =>   CanRead = true, but 0 != 1

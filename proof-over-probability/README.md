@@ -50,7 +50,8 @@ started**:
 ```
 
 Add that one line to the *same code* (`02_real_property_fails.dfy`) and
-verification **fails**. Dafny does not return a hunch; it returns a witness:
+verification **fails** — and on *exactly* that postcondition (`newBalance <= balance`),
+not a vague warning. The input that breaks it is concrete:
 
 ```
 balance = 0, amount = -1   =>   newBalance = 1
