@@ -18,6 +18,10 @@ AI-generated hot path.
   an inductive proof that no sequence of transfers ever changes the total, and a
   demonstration that a confident but false LLM proof is rejected by the kernel,
   while the counterexample checks as a theorem.
+- **[Overflow: the second failure mode](overflow-the-hidden-mode)** — the same
+  wallet, now in 64-bit integers that wrap. A deposit that silently overflows
+  destroys funds with no error; the invariant "no funds lost" catches it, proved
+  over the whole 2^64 space by Z3's bitvector reasoning.
 
 Each piece is self-contained. Run `dafny verify` (Dafny pieces) or `lean` (the
 Lean piece) on the files to reproduce the SUCCEEDS / FAILS yourself.
